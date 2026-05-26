@@ -1,0 +1,135 @@
+/* Restablecimiento básico para consistencia en navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Variables de color para mantener la elegancia */
+:root {
+    --color-fondo: #fbfbfb;
+    --color-texto: #333333;
+    --color-acento: #2c5e3b; /* Verde oscuro / Agave */
+    --color-dorado: #c5a059;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer quede abajo */
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+header {
+    background-color: #ffffff;
+    padding: 20px 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--color-acento);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--color-dorado);
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 40px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--color-acento);
+}
+
+/* --- TARJETAS DEL MENÚ --- */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-platillo {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-platillo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.img-platillo {
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0; /* Placeholder para la imagen */
+    object-fit: cover;
+}
+
+.info-platillo {
+    padding: 15px;
+}
+
+.tamanos-precios {
+    list-style: none;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.tamanos-precios li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    background-color: var(--color-acento);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
