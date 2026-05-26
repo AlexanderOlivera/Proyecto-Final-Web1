@@ -24,12 +24,16 @@ body {
 }
 
 /* --- ENCABEZADO Y NAVEGACIÓN --- */
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
 header {
     background-color: #ffffff;
-    padding: 20px 50px;
+    padding: 2px 50px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
+    
+    /* Cambiamos flex por grid */
+    display: grid;
+    /* Creamos 3 columnas: Izquierda (1 fracción), Centro (automático al logo), Derecha (1 fracción) */
+    grid-template-columns: 1fr auto 1fr; 
     align-items: center;
 }
 
@@ -38,6 +42,22 @@ header h1 {
     color: var(--color-acento);
     letter-spacing: 2px;
     text-transform: uppercase;
+    /* Obligamos al texto a quedarse recargado a la izquierda */
+    justify-self: start; 
+}
+
+.logo-header {
+    padding: 0;
+    /* Centramos el logo en su columna */
+    justify-self: center;
+    height: 60px; /* Ajusta este valor para que el logo se vea proporcional */
+    width: auto;
+    transform: scale(1.8); /* Esto hace el logo 1.8 veces más grande visualmente */
+}
+
+header nav {
+    /* Obligamos a la navegación a quedarse recargada a la derecha */
+    justify-self: end;
 }
 
 nav ul {
