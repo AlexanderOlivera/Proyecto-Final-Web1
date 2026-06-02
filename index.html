@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Restaurante Corazón de Agave. Disfruta de la mejor gastronomía en un ambiente elegante y minimalista.">
     <meta name="keywords" content="restaurante, comida, menú digital, restaurante elegante, corazón de agave">
-    <meta name="author" content="Alexander e Ivan">
+    <meta name="author" content="Resendiz Olivera e Ivan">
     
     <title>Corazón de Agave | Inicio</title>
     
@@ -13,14 +13,11 @@
 </head>
 <body>
 
-    <header>
-        <h1>Corazón de Agave</h1>
-
-        <img src="img/logo-sin-fondo.png" alt="Logo Corazón de Agave" class="logo-header">
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
+    <!-- Nuevo Encabezado / Barra de navegación flotante -->
+    <header class="header-flotante">
+        <nav class="nav-principal">
+            <ul class="nav-links">
+                <li><a href="index.html" class="btn-destacado">Inicio</a></li>
                 <li><a href="inedex de navegacion/menu.html">Menú Comida</a></li>
                 <li><a href="inedex de navegacion/galeria.html">Galería</a></li>
                 <li><a href="inedex de navegacion/promociones.html">Promociones</a></li>
@@ -28,16 +25,65 @@
         </nav>
     </header>
 
-    <main>
-        <h2 class="titulo-seccion">Bienvenidos a nuestra mesa</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-            Descubre una experiencia culinaria única. En Corazón de Agave nos enorgullecemos de ofrecer platillos elaborados con los ingredientes más frescos, presentados con la sofisticación que mereces. Te invitamos a explorar nuestras secciones para conocer nuestra oferta.
-        </p>
+    <!-- Contenido principal: Slider a pantalla completa -->
+    <main class="main-inicio">
+        <section class="slider-contenedor">
+            <div id="slider-bg" class="slider-bg"></div>
+            
+            <div class="overlay-filtro"></div> 
+            
+            <button id="btn-ant" class="slider-btn btn-izq">&#10094;</button>
+            <button id="btn-sig" class="slider-btn btn-der">&#10095;</button>
+            
+            <div class="contenido-hero">
+                <img src="img/logo-sin-fondo.png" alt="Logo Corazón de Agave" class="logo-hero">
+                <h2 class="titulo-hero">CORAZÓN DE AGAVE</h2>
+                <p class="subtitulo-hero">RESTAURANTE</p>
+            </div>
+        </section>
     </main>
 
+    <script>
+        // Array con las imágenes de fondo
+        const imagenesSlider = [
+            "img/local-barra.png","img/local-interior.png","img/local-patio.png",
+            "img/local-exterior.png","img/local-barra2.png","img/local-interior2.png"
+            ,"img/local-patio2.png"
+        ];
+        
+        let indiceActual = 0;
+        const sliderBg = document.getElementById("slider-bg");
+
+        // Función para cambiar la imagen
+        function mostrarImagen(indice) {
+            sliderBg.style.backgroundImage = `url('${imagenesSlider[indice]}')`;
+        }
+
+        // Evento para la flecha derecha
+        document.getElementById("btn-sig").addEventListener("click", () => {
+            indiceActual = (indiceActual + 1) % imagenesSlider.length;
+            mostrarImagen(indiceActual);
+        });
+
+        // Evento para la flecha izquierda
+        document.getElementById("btn-ant").addEventListener("click", () => {
+            indiceActual = (indiceActual - 1 + imagenesSlider.length) % imagenesSlider.length;
+            mostrarImagen(indiceActual);
+        });
+
+        // Cambio automático cada 5 segundos (5000 milisegundos)
+        setInterval(() => {
+            indiceActual = (indiceActual + 1) % imagenesSlider.length;
+            mostrarImagen(indiceActual);
+        }, 5000);
+
+        // Mostrar la primera imagen al cargar la página
+        mostrarImagen(indiceActual);
+    </script>
+    
     <footer>
         <p>&copy; 2026 Restaurante Corazón de Agave. Todos los derechos reservados.</p>
-        <p>Desarrollado por: Alexander e Ivan | Materia: Programación Web</p>
+        <p>Desarrollado por: Resendiz Olivera e Ivan | Materia: Programación Web</p>
     </footer>
 
 </body>
