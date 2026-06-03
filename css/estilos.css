@@ -1,5 +1,18 @@
+/* =========================================================
+   HOJA DE ESTILOS - CORAZÓN DE AGAVE
+   =========================================================
+   ÍNDICE:
+   1. Configuración Global y Variables
+   2. Estructura Base (Main, Footer)
+   3. Navegación Flotante (Header)
+   4. Slider Principal (Hero)
+   5. Componentes Reutilizables (Títulos, Botones, Textos)
+   6. Tarjetas de Menú y Galería (Grid y Overlay)
+   7. Secciones Específicas (Equipo, Comentarios, Reservas)
+   ========================================================= */
+
 /* =========================================
-   1. CONFIGURACIÓN GLOBAL
+   1. CONFIGURACIÓN GLOBAL Y VARIABLES
    ========================================= */
 * {
     margin: 0;
@@ -15,6 +28,10 @@
     --color-dorado: #c5a059;
 }
 
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave para enlaces internos */
+}
+
 body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
@@ -25,7 +42,39 @@ body {
 }
 
 /* =========================================
-   2. ENCABEZADO Y NAVEGACIÓN FLOTANTE
+   2. ESTRUCTURA BASE
+   ========================================= */
+main {
+    flex: 1; 
+    padding: 100px 50px 40px 50px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main-inicio {
+    padding: 0; 
+    max-width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: var(--color-acento);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* =========================================
+   3. NAVEGACIÓN FLOTANTE
    ========================================= */
 .header-flotante {
     position: fixed; 
@@ -86,16 +135,8 @@ body {
 }
 
 /* =========================================
-   3. ESTILOS DEL SLIDER (HERO PÁGINA DE INICIO)
+   4. SLIDER PRINCIPAL (HERO)
    ========================================= */
-.main-inicio {
-    padding: 0; 
-    max-width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
 .slider-contenedor {
     position: relative;
     width: 100%;
@@ -108,10 +149,7 @@ body {
 
 .slider-bg {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
     transition: background-image 0.8s ease-in-out; 
@@ -120,10 +158,7 @@ body {
 
 .overlay-filtro {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 2;
 }
@@ -182,55 +217,7 @@ body {
 .btn-der { right: 20px; }
 
 /* =========================================
-   EFECTO DE DESPLAZAMIENTO Y BOTÓN HERO
-   ========================================= */
-
-/* Esta regla hace que todos los enlaces internos se deslicen suavemente */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Estilos para el nuevo botón en la imagen principal */
-.btn-hero-reserva {
-    margin-top: 40px;
-    padding: 15px 35px;
-    background-color: transparent; /* Fondo transparente */
-    color: #ffffff; /* Letras blancas */
-    border: 2px solid #ffffff; /* Borde blanco elegante */
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-hero-reserva:hover {
-    background-color: var(--color-dorado); /* Se llena de dorado al pasar el mouse */
-    border-color: var(--color-dorado);
-    transform: translateY(-5px); /* Pequeño salto hacia arriba */
-}
-
-/* =========================================
-   4. ESTRUCTURA BASE CONTENIDO (OTRAS PÁGINAS)
-   ========================================= */
-main {
-    flex: 1; 
-    padding: 100px 50px 40px 50px; 
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.titulo-seccion {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: var(--color-acento);
-}
-
-/* =========================================
-   5. NUEVAS SECCIONES PÁGINA DE INICIO
+   5. COMPONENTES REUTILIZABLES
    ========================================= */
 .seccion-info {
     padding: 80px 50px;
@@ -243,15 +230,138 @@ main {
     text-align: center;
 }
 
-.bg-gris { background-color: #f9f9f9; }
-.bg-crema { background-color: #f7f3ec; } 
-.color-blanco { color: #ffffff !important; }
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--color-acento);
+}
 
 .texto-presentacion {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #555;
 }
+
+.bg-gris { background-color: #f9f9f9; }
+.bg-crema { background-color: #f7f3ec; } 
+.color-blanco { color: #ffffff !important; }
+
+/* Botón de la imagen principal */
+.btn-hero-reserva {
+    margin-top: 40px;
+    padding: 15px 35px;
+    background-color: transparent; 
+    color: #ffffff; 
+    border: 2px solid #ffffff; 
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-reserva:hover {
+    background-color: var(--color-dorado); 
+    border-color: var(--color-dorado);
+    transform: translateY(-5px); 
+}
+
+/* =========================================
+   6. TARJETAS DE MENÚ Y GALERÍA
+   ========================================= */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas normales (Menú Comida) */
+.tarjeta-platillo {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-platillo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.img-platillo {
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0; 
+    object-fit: cover;
+}
+
+.info-platillo { padding: 15px; }
+
+.tamanos-precios {
+    list-style: none;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.tamanos-precios li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Galería con Efecto Hover / Overlay */
+.galeria-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; 
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    height: 280px; /* <--- CORRECCIÓN DE ALTURA PARA EVITAR IMÁGENES ALARGADAS */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease; 
+}
+
+.galeria-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    opacity: 0; 
+    transition: opacity 0.4s ease; 
+}
+
+.galeria-overlay p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    transform: translateY(20px); 
+    transition: transform 0.4s ease; 
+}
+
+.galeria-item:hover img { transform: scale(1.1); }
+.galeria-item:hover .galeria-overlay { opacity: 1; }
+.galeria-item:hover .galeria-overlay p { transform: translateY(0); }
+
+/* =========================================
+   7. SECCIONES ESPECÍFICAS (INICIO)
+   ========================================= */
 
 /* --- Equipo --- */
 .grid-equipo {
@@ -292,9 +402,7 @@ main {
     transition: transform 0.3s ease;
 }
 
-.grid-galeria-home img:hover {
-    transform: scale(1.03); 
-}
+.grid-galeria-home img:hover { transform: scale(1.03); }
 
 /* --- Comentarios con Scroll --- */
 .seccion-comentarios {
@@ -404,63 +512,4 @@ main {
     background-color: var(--color-acento);
     color: #ffffff;
     border-color: var(--color-acento);
-}
-
-/* =========================================
-   6. TARJETAS DEL MENÚ Y PIE DE PÁGINA
-   ========================================= */
-.grid-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.tarjeta-platillo {
-    background: #ffffff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.tarjeta-platillo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.img-platillo {
-    width: 100%;
-    height: 200px;
-    background-color: #e0e0e0; 
-    object-fit: cover;
-}
-
-.info-platillo { padding: 15px; }
-
-.tamanos-precios {
-    list-style: none;
-    margin-top: 15px;
-    font-size: 0.9rem;
-}
-
-.tamanos-precios li {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 20px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-footer {
-    background-color: var(--color-acento);
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-}
-
-footer p {
-    font-size: 0.9rem;
-    margin: 5px 0;
 }
