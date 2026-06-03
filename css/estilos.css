@@ -1,6 +1,4 @@
 /* =========================================================
-   HOJA DE ESTILOS - CORAZÓN DE AGAVE
-   =========================================================
    ÍNDICE:
    1. Configuración Global y Variables
    2. Estructura Base (Main, Footer)
@@ -9,6 +7,7 @@
    5. Componentes Reutilizables (Títulos, Botones, Textos)
    6. Tarjetas de Menú y Galería (Grid y Overlay)
    7. Secciones Específicas (Equipo, Comentarios, Reservas)
+   8. Diseño Responsivo (MÓVILES Y TABLETAS)
    ========================================================= */
 
 /* =========================================
@@ -135,7 +134,7 @@ footer p {
 }
 
 /* =========================================
-   4. SLIDER PRINCIPAL (HERO)
+   4. SLIDER PRINCIPAL
    ========================================= */
 .slider-contenedor {
     position: relative;
@@ -237,6 +236,12 @@ footer p {
     color: var(--color-acento);
 }
 
+/* Aumento de tamaño para los títulos de sección (H3) */
+main section h3 {
+    font-size: 2.5rem; 
+    letter-spacing: 1px; 
+}
+
 .texto-presentacion {
     font-size: 1.2rem;
     line-height: 1.8;
@@ -322,7 +327,7 @@ footer p {
     overflow: hidden; 
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    height: 280px; /* <--- CORRECCIÓN DE ALTURA PARA EVITAR IMÁGENES ALARGADAS */
+    height: 280px; 
 }
 
 .galeria-item img {
@@ -355,12 +360,18 @@ footer p {
     transition: transform 0.4s ease; 
 }
 
-.galeria-item:hover img { transform: scale(1.1); }
-.galeria-item:hover .galeria-overlay { opacity: 1; }
-.galeria-item:hover .galeria-overlay p { transform: translateY(0); }
+.galeria-item:hover img { 
+    transform: scale(1.1); 
+}
+.galeria-item:hover .galeria-overlay { 
+    opacity: 1; 
+}
+.galeria-item:hover .galeria-overlay p { 
+    transform: translateY(0); 
+}
 
 /* =========================================
-   7. SECCIONES ESPECÍFICAS (INICIO)
+   7. SECCIONES INICIO
    ========================================= */
 
 /* --- Equipo --- */
@@ -382,8 +393,12 @@ footer p {
     border: 4px solid var(--color-dorado);
 }
 
-.tarjeta-equipo h4 { color: var(--color-acento); font-size: 1.2rem; }
-.tarjeta-equipo p { color: #777; font-size: 0.9rem; font-weight: bold; text-transform: uppercase;}
+.tarjeta-equipo h4 { 
+    color: var(--color-acento); font-size: 1.2rem; 
+}
+.tarjeta-equipo p { 
+    color: #777; font-size: 0.9rem; font-weight: bold; text-transform: uppercase;
+}
 
 /* --- Galería Rápida (Inicio) --- */
 .grid-galeria-home {
@@ -402,7 +417,9 @@ footer p {
     transition: transform 0.3s ease;
 }
 
-.grid-galeria-home img:hover { transform: scale(1.03); }
+.grid-galeria-home img:hover { 
+    transform: scale(1.03); 
+}
 
 /* --- Comentarios con Scroll --- */
 .seccion-comentarios {
@@ -420,9 +437,15 @@ footer p {
     margin: 0 auto;
 }
 
-.scroll-comentarios::-webkit-scrollbar { height: 10px; }
-.scroll-comentarios::-webkit-scrollbar-track { background: rgba(255,255,255,0.2); border-radius: 10px; }
-.scroll-comentarios::-webkit-scrollbar-thumb { background: var(--color-acento); border-radius: 10px; }
+.scroll-comentarios::-webkit-scrollbar { 
+    height: 10px; 
+}
+.scroll-comentarios::-webkit-scrollbar-track { 
+    background: rgba(255,255,255,0.2); border-radius: 10px; 
+}
+.scroll-comentarios::-webkit-scrollbar-thumb { 
+    background: var(--color-acento); border-radius: 10px; 
+}
 
 .tarjeta-comentario {
     background-color: #ffffff;
@@ -492,9 +515,13 @@ footer p {
     outline: none;
 }
 
-.input-reserva:focus { border-color: var(--color-acento); }
+.input-reserva:focus { 
+    border-color: var(--color-acento); 
+}
 
-.boton-reserva-container { justify-content: flex-end; }
+.boton-reserva-container { 
+    justify-content: flex-end; 
+}
 
 .btn-reservar {
     background-color: #ffffff;
@@ -512,4 +539,241 @@ footer p {
     background-color: var(--color-acento);
     color: #ffffff;
     border-color: var(--color-acento);
+}
+
+/* =========================================
+   BOTÓN VOLVER ARRIBA
+   ========================================= */
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    border-radius: 50%; /* Lo hace un círculo perfecto */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Asegura que siempre esté por encima del contenido */
+    
+    /* Configuración para la animación de entrada */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px); /* Empieza un poco más abajo */
+    transition: all 0.3s ease;
+}
+
+.btn-volver-arriba svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Efecto hover: dorado brillante y ligero salto */
+.btn-volver-arriba:hover {
+    background-color: var(--color-dorado);
+    color: #ffffff;
+    transform: translateY(-5px) scale(1.05); 
+}
+
+/* Esta clase se agrega con JavaScript cuando el usuario baja la pantalla */
+.btn-volver-arriba.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Sube a su posición original */
+}
+
+/* Ajuste para que no estorbe en las pantallas de celulares */
+@media (max-width: 768px) {
+    .btn-volver-arriba {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* =========================================
+   PIE DE PÁGINA 
+   ========================================= */
+.footer-elegante {
+    background-color: #2b231c; /* Tono café muy oscuro para dar contraste */
+    color: #ffffff;
+    padding: 70px 20px 20px 20px;
+    margin-top: auto;
+    text-align: center;
+}
+
+.footer-columnas {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se acomoden en pantallas pequeñas */
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+/* Líneas separadoras sutiles para la columna del centro */
+.col-centro {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icono-footer svg {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.footer-titulo {
+    font-family: Georgia, serif; /* Tipografía elegante para coincidir con la referencia */
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: var(--color-dorado);
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    font-size: 1rem;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.margen-top {
+    margin-top: 40px;
+}
+
+.footer-creditos {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.footer-creditos p {
+    font-size: 0.85rem;
+    color: #888888;
+    margin: 5px 0;
+}
+
+/* =========================================
+   ESTILOS DE ENLACES DEL FOOTER
+   ========================================= */
+
+/* Forzamos el color gris y quitamos el subrayado en todos los estados del enlace */
+.link-footer,
+.link-footer:link,
+.link-footer:visited,
+.link-footer:active {
+    color: #cccccc; /* Color gris original que combina con el texto */
+    text-decoration: none; /* Quita la línea de abajo predeterminada */
+    transition: color 0.3s ease; /* Hace que el cambio de color sea suave */
+}
+
+/* Solo cambiamos al verde agave cuando el cursor pasa por encima */
+.link-footer:hover {
+    color: var(--color-acento); /* Verde agave */
+}
+
+/* =========================================================
+   8. DISEÑO RESPONSIVO (MÓVILES Y TABLETAS)
+   ========================================================= */
+
+/* --- TABLETAS (Pantallas medianas hasta 992px) --- */
+@media (max-width: 992px) {
+    .titulo-hero { font-size: 3rem; }
+    main { padding: 100px 30px 40px 30px; }
+    .seccion-info { padding: 60px 30px; }
+    .grid-menu { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+/* --- TELÉFONOS (Pantallas pequeñas hasta 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Menú de Navegación */
+    .nav-links {
+        flex-wrap: wrap; /* Permite que el menú se divida en dos líneas si no cabe */
+        justify-content: center;
+    }
+    .nav-links a {
+        padding: 10px 15px; 
+        font-size: 0.8rem;
+    }
+
+    /* 2. Slider y Textos Principales */
+    .logo-hero { width: 220px; margin-top: 30%; margin-bottom: -15px; }
+    .titulo-hero { font-size: 2.2rem; letter-spacing: 2px; }
+    .subtitulo-hero { font-size: 1.1rem; }
+    
+    /* Flechas del slider más pequeñas para no estorbar en el celular */
+    .slider-btn { font-size: 2rem; padding: 10px; }
+    .btn-izq { left: 5px; }
+    .btn-der { right: 5px; }
+
+    /* 3. Ajuste de Márgenes y Títulos Globales */
+    main { padding: 140px 20px 40px 20px; } /* Más espacio arriba por el menú apilado */
+    .seccion-info { padding: 40px 20px; }
+    .titulo-seccion { font-size: 1.8rem; margin-bottom: 30px; }
+    main section h3 { font-size: 1.8rem; }
+    .titulo-elegante { font-size: 2rem; }
+    .texto-presentacion { font-size: 1.1rem; text-align: justify; }
+
+    /* 4. Cuadrículas: Todo a 1 sola columna vertical */
+    .grid-menu, 
+    .grid-equipo, 
+    .grid-galeria-home {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    /* 5. Comentarios */
+    .tarjeta-comentario {
+        flex: 0 0 280px; /* Tarjetas más angostas para celulares */
+        padding: 25px;
+    }
+    .comillas { font-size: 3.5rem; }
+
+    /* 6. Formulario de Reserva */
+    .formulario-reserva { grid-template-columns: 1fr; }
+    .boton-reserva-container { justify-content: center; margin-top: 10px; }
+    .btn-reservar { width: 100%; } /* El botón ocupa todo el ancho */
+
+    /* 7. Footer */
+    .footer-elegante { padding: 40px 20px 20px 20px; }
+    .footer-col { padding: 0 10px; margin-bottom: 20px; }
+    
+    /* Cambia las líneas separadoras del contacto de verticales a horizontales */
+    .col-centro {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 30px 0;
+        margin: 15px 0 30px 0;
+    }
+}
+
+/* --- TELÉFONOS MUY PEQUEÑOS (hasta 480px) --- */
+@media (max-width: 480px) {
+    .nav-links a { padding: 8px 10px; font-size: 0.75rem; }
+    .titulo-hero { font-size: 1.8rem; }
+}
+
+@media (max-width: 800px) {
+    .col-centro {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px 20px;
+    }
 }

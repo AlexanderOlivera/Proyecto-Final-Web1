@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Galería del Restaurante Corazón de Agave. Conoce nuestras instalaciones, platillos destacados y eventos especiales.">
-    <meta name="author" content="Resendiz Olivera e Ivan">
+    <meta name="author" content="Alexander e Ivan">
     
     <title>Corazón de Agave | Galería</title>
     
@@ -16,7 +16,7 @@
         <nav class="nav-principal">
             <ul class="nav-links">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../inedex de navegacion/menu.html">Menú Comida</a></li>
+                <li><a href="../inedex de navegacion/menu.html">Menú</a></li>
                 <li><a href="../inedex de navegacion/galeria.html" class="btn-destacado">Galería</a></li>
                 <li><a href="../inedex de navegacion/promociones.html">Promociones</a></li>
             </ul>
@@ -114,10 +114,94 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Restaurante Corazón de Agave. Todos los derechos reservados.</p>
-        <p>Desarrollado por: Resendiz Olivera e Ivan | Materia: Programación Web</p>
-    </footer>
+
+<!-- Botón Volver Arriba -->
+    <button id="btn-volver-arriba" class="btn-volver-arriba" aria-label="Volver al inicio">
+        <!-- Icono de flecha minimalista SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+<script>
+        // Lógica para el botón "Volver Arriba"
+        const btnVolverArriba = document.getElementById("btn-volver-arriba");
+
+        // Detecta cuando el usuario hace scroll
+        window.addEventListener("scroll", () => {
+            // Si baja más de 300 píxeles, muestra el botón
+            if (window.scrollY > 300) {
+                btnVolverArriba.classList.add("mostrar");
+            } else {
+                // Si está hasta arriba, ocúltalo
+                btnVolverArriba.classList.remove("mostrar");
+            }
+        });
+
+        // Detecta el clic en el botón
+        btnVolverArriba.addEventListener("click", () => {
+            // Lleva la pantalla hasta el tope con un deslizamiento suave
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+<!--PIE DE PÁGINA-->
+<footer class="footer-elegante">
+        <div class="footer-columnas">
+            
+            <!-- Columna 1: Ubicación -->
+            <div class="footer-col">
+                <div class="icono-footer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <h4 class="footer-titulo">Dónde estamos</h4>
+                <p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Hacienda+de+Rancho+Seco+S%2FN,+Impulsora+Popular+Avícola,+Nezahualcóyotl,+Méx." target="_blank" class="link-footer">
+                        Av. Hacienda de Rancho Seco S/N<br>Impulsora Popular Avícola<br>Nezahualcóyotl, Méx.
+                    </a>
+                </p>
+            </div>
+
+            <!-- Columna 2: Contacto -->
+            <div class="footer-col col-centro">
+                <div class="icono-footer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <h4 class="footer-titulo">Contacto</h4>
+                <p><a href="tel:+525512345678" class="link-footer">55 1234 5678</a></p>
+                
+                <div class="icono-footer margen-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <h4 class="footer-titulo">Mail</h4>
+                <p><a href="mailto:hola@corazondeagave.mx" class="link-footer">hola@corazondeagave.mx</a></p>
+            </div>
+
+            <!-- Columna 3: Redes -->
+            <div class="footer-col">
+                <div class="icono-footer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </div>
+                <h4 class="footer-titulo">Instagram</h4>
+                <p><a href="https://www.instagram.com/corazondeagave" target="_blank" class="link-footer">@corazondeagave</a></p>
+            </div>
+            
+        </div>
+
+<!-- Créditos y Licencia -->
+<div class="footer-creditos">
+            <p style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/AlexanderOlivera/Proyecto-Final-Web1" class="link-footer">CORAZÓN DE AGAVE</a> &nbsp;© 2026 by&nbsp; 
+                <a href="https://github.com/AlexanderOlivera" class="link-footer">Alexander Olivera e Ivan Castillo</a> &nbsp;is licensed under&nbsp; 
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="link-footer" target="_blank">CC BY-SA 4.0</a>
+                
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="max-width: 1.2em; max-height:1.2em; margin-left: 0.4em; filter: invert(1);">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style="max-width: 1.2em; max-height:1.2em; margin-left: 0.2em; filter: invert(1);">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="SA" style="max-width: 1.2em; max-height:1.2em; margin-left: 0.2em; filter: invert(1);">
+            </p>
+            <p>Materia: Programación Web</p>
+        </div>
 
 </body>
 </html>
