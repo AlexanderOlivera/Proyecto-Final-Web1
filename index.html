@@ -13,7 +13,6 @@
 </head>
 <body>
 
-    <!-- Nuevo Encabezado / Barra de navegación flotante -->
     <header class="header-flotante">
         <nav class="nav-principal">
             <ul class="nav-links">
@@ -25,11 +24,10 @@
         </nav>
     </header>
 
-    <!-- Contenido principal: Slider a pantalla completa -->
     <main class="main-inicio">
+        
         <section class="slider-contenedor">
             <div id="slider-bg" class="slider-bg"></div>
-            
             <div class="overlay-filtro"></div> 
             
             <button id="btn-ant" class="slider-btn btn-izq">&#10094;</button>
@@ -39,16 +37,124 @@
                 <img src="img/logo-sin-fondo.png" alt="Logo Corazón de Agave" class="logo-hero">
                 <h2 class="titulo-hero">CORAZÓN DE AGAVE</h2>
                 <p class="subtitulo-hero">RESTAURANTE</p>
+                <a href="#seccion-reserva" class="btn-hero-reserva">Haz tu reserva</a>
             </div>
         </section>
+
+        <section class="seccion-info contenedor-centrado">
+            <h2 class="titulo-seccion">Nuestra Esencia</h2>
+            <p class="texto-presentacion">
+                En Corazón de Agave, honramos la riqueza de la tierra y la tradición. Cada platillo es una obra maestra que fusiona la auténtica cocina mexicana con toques contemporáneos, utilizando ingredientes de la más alta calidad. Te invitamos a vivir una experiencia gastronómica inigualable en un ambiente sofisticado y acogedor.
+            </p>
+        </section>
+
+        <section class="seccion-info bg-gris">
+            <h2 class="titulo-seccion">Conoce a Nuestro Equipo</h2>
+            <div class="grid-equipo">
+                <div class="tarjeta-equipo">
+                    <img src="img/chef.png" alt="Chef Ejecutivo" class="img-equipo">
+                    <h4>Diego Ramírez</h4>
+                    <p>Chef Ejecutivo</p>
+                </div>
+                <div class="tarjeta-equipo">
+                    <img src="img/Sous-Chef.png" alt="Jefa de Cocina" class="img-equipo">
+                    <h4>Sofía Mendoza</h4>
+                    <p>Sous Chef</p>
+                </div>
+                <div class="tarjeta-equipo">
+                    <img src="img/mixologo.png" alt="Bartender" class="img-equipo">
+                    <h4>Carlos Fuentes</h4>
+                    <p>Mixólogo y Bartender</p>
+                </div>
+                <div class="tarjeta-equipo">
+                    <img src="img/capitana.png" alt="Capitana de Meseros" class="img-equipo">
+                    <h4>Laura Valdez</h4>
+                    <p>Capitana de Servicio</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-info">
+            <h2 class="titulo-seccion">Un Vistazo a Nuestra Cocina</h2>
+            <div class="grid-galeria-home">
+                <img src="img/bisque.png" alt="Platillo 1">
+                <img src="img/carne-asada.png" alt="Platillo 2">
+                <img src="img/chile-relleno.png" alt="Platillo 3">
+                <img src="img/enchiladas-hongo.png" alt="Platillo 4">
+                <img src="img/fajitas-añejo.png" alt="Platillo 5">
+                <img src="img/pozole.png" alt="Platillo 6">
+                <img src="img/taco-carnitas.png" alt="Platillo 7">
+                <img src="img/puerco-colorado.png" alt="Platillo 8">
+                <img src="img/pescado-encornflecado.png" alt="Platillo 9">
+                <img src="img/enchiladas-tres.png" alt="Platillo 10">
+                <img src="img/taco-grouper.png" alt="Platillo 11">
+                <img src="img/flautas-pollo.png" alt="Platillo 12">
+            </div>
+        </section>
+
+        <section class="seccion-comentarios">
+            <h2 class="titulo-seccion color-blanco">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="scroll-comentarios">
+                <div class="tarjeta-comentario">
+                    <span class="comillas">“</span>
+                    <p>Un 10 en todos los sentidos. La comida estaba deliciosa, los ingredientes eran de alta calidad. Amplia carta de vinos. Increíble selección de postres.</p>
+                    <h5 class="autor-comentario">Ana</h5>
+                </div>
+                <div class="tarjeta-comentario">
+                    <span class="comillas">“</span>
+                    <p>Esta fue nuestra primera vez aquí, pero a partir de ahora será uno de nuestros restaurantes favoritos. Un triple 10; ubicación, comida y atención al cliente.</p>
+                    <h5 class="autor-comentario">Roberto</h5>
+                </div>
+                <div class="tarjeta-comentario">
+                    <span class="comillas">“</span>
+                    <p>Una experiencia placentera. Es un restaurante muy distinguido y elegante, no sólo por la decoración, sino también por el excelente servicio que prestan.</p>
+                    <h5 class="autor-comentario">Cristina</h5>
+                </div>
+                <div class="tarjeta-comentario">
+                    <span class="comillas">“</span>
+                    <p>Totalmente recomendado. El corte de Ribeye estuvo cocinado a la perfección y el trato de los meseros te hace sentir verdaderamente especial desde que llegas.</p>
+                    <h5 class="autor-comentario">Fernanda</h5>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-reserva" class="seccion-info bg-crema">
+            <h2 class="titulo-seccion titulo-elegante">Reserva con nosotros</h2>
+            <div class="contenedor-reserva">
+                <form class="formulario-reserva" onsubmit="event.preventDefault(); alert('Reserva enviada');">
+                    <div class="grupo-reserva">
+                        <label>Fecha</label>
+                        <input type="date" class="input-reserva" required>
+                    </div>
+                    <div class="grupo-reserva">
+                        <label>Personas</label>
+                        <select class="input-reserva">
+                            <option>1 Persona</option>
+                            <option selected>2 Personas</option>
+                            <option>3 Personas</option>
+                            <option>4 Personas</option>
+                            <option>Grupo (5+)</option>
+                        </select>
+                    </div>
+                    <div class="grupo-reserva">
+                        <label>Hora</label>
+                        <input type="time" class="input-reserva" required>
+                    </div>
+                    <div class="grupo-reserva boton-reserva-container">
+                        <button type="submit" class="btn-reservar">Reservar Mesa</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <script>
         // Array con las imágenes de fondo
         const imagenesSlider = [
             "img/local-barra.png","img/local-interior.png","img/local-patio.png",
-            "img/local-exterior.png","img/local-barra2.png","img/local-interior2.png"
-            ,"img/local-patio2.png"
+            "img/local-exterior.png","img/local-barra2.png","img/local-interior2.png",
+            "img/local-patio2.png"
         ];
         
         let indiceActual = 0;
